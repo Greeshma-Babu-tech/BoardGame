@@ -98,12 +98,12 @@ pipeline {
                    }
                 }   
             }
-        } /*
+        } 
         stage('Docker Image Scan') {
             steps {
                 sh 'trivy image --format table -o trivy-image-report.html ${DOCKER_IMAGE}'
             }
-        }
+        }/*
         stage('Archive Report') {
             steps {
                 // Archive the Trivy report for later reference
