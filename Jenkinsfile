@@ -61,7 +61,7 @@ pipeline {
         }
         stage('Publish To Nexus') {
             steps {
-                nexusArtifactUploader credentialsId: 'nexus', groupId: 'com.javaproject', nexusUrl: 'http://35.175.171.59:8081/', nexusVersion: 'nexus2', protocol: 'http', repository: 'BoardGame', version: '02-SNAPSHOT'
+                nexusArtifactUploader credentialsId: 'nexus', groupId: 'com.javaproject', nexusUrl: 'http://35.175.171.59:8081/',protocol: 'http', repository: 'BoardGame', version: '02-SNAPSHOT'
                 withMaven(globalMavenSettingsConfig: 'global-settings', jdk: 'jdk17', maven: 'maven3', mavenSettingsConfig: '', traceability: true) {
                     sh 'mvn deploy -X'
                 }
