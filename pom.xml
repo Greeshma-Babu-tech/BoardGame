@@ -126,11 +126,11 @@
 	 <distributionManagement>
         <repository>
             <id>maven3</id>
-            <url>http://35.175.171.59:8081/repository/BoardGame/maven-releases/</url>
+            <url>http://35.175.171.59:8081/repository/maven-releases/</url>
         </repository>
         <snapshotRepository>
             <id>maven-snapshots</id>
-            <url>http://35.175.171.59:8081/repository/BoardGame/maven-snapshots/</url>
+            <url>http://35.175.171.59:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
