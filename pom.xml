@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.0.38</version>
+		<version>1.0.40</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<repositories>
@@ -16,7 +16,7 @@
     </repositories>
 	<groupId>com.javaproject</groupId>
 	<artifactId>database_service_project</artifactId>
-	<version>0.0.5</version>
+	<version>1.0.40</version>
 	<name>database_service_project</name>
 	<description>Project for Spring Boot</description>
 	<packaging>jar</packaging>
