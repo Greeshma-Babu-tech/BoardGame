@@ -75,7 +75,7 @@ pipeline {
                     )
                 //withMaven(globalMavenSettingsConfig: 'global-settings', jdk: 'jdk17', maven: 'maven3', mavenSettingsConfig: '', traceability: true) {
                 //    sh 'mvn deploy -X'
-                }
+               // }
             }
         }
         // stage('Build & Tag Docker Image') {
