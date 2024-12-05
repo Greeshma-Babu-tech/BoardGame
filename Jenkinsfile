@@ -5,7 +5,7 @@ pipeline {
         maven 'maven3'
     }
     environment {
-       // SCANNER_HOME = tool 'sonar-scanner'
+       SCANNER_HOME = tool 'sonar-scanner'
         //DOCKER_IMAGE = "bkrraj/boardshack:${env.BUILD_NUMBER}" // Image name with versioning
     }
     stages {
