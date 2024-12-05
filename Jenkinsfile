@@ -6,7 +6,7 @@ pipeline {
     }
     environment {
        SCANNER_HOME = tool 'sonar-scanner'
-       dockerhub_cred=credentials('docker-cred')
+       //dockerhub_cred=credentials('docker-cred')
        DOCKER_IMAGE = "greeshmab/boardgame:${env.BUILD_NUMBER}" // Image name with versioning
     }
     stages {
@@ -93,9 +93,9 @@ pipeline {
             steps {
                 script {
                     // Build the Docker image using the renamed JAR file
-                    //withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
+                    withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
                     sh "docker build -t ${DOCKER_IMAGE} --build-arg JAR_FILE=target/app-${env.BUILD_NUMBER}.jar ."
-                  //  }
+                   }
                 }   
             }
         } /*
