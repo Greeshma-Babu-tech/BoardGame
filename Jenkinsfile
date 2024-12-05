@@ -17,7 +17,7 @@ pipeline {
         stage('Versioning') {
     steps {
         script {
-            sh 'mvn versions:set -DnewVersion=1.0.${BUILD_NUMBER}'
+            sh "mvn versions:set -DnewVersion=1.0.${BUILD_NUMBER}"
         }
     }
 }
