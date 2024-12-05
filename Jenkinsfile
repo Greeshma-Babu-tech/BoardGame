@@ -70,7 +70,7 @@ pipeline {
                      groupId: 'com.javaproject', 
                      version: '0.0.1',
                      artifacts: [
-                         [artifactId:'database_service_project',classifier: '', file: "target/database_service_project-${env.BUILD_NUMBER}.jar", type: 'jar']
+                         [artifactId:'database_service_project',classifier: '', file: "target/database_service_project-1.0.${env.BUILD_NUMBER}.jar", type: 'jar']
                      ]
                     )
             withMaven(globalMavenSettingsConfig: 'global-settings', jdk: 'jdk17', maven: 'maven3', mavenSettingsConfig: '', traceability: true) {
