@@ -103,7 +103,7 @@ pipeline {
             steps {
                 sh 'trivy image --format table -o trivy-image-report.html ${DOCKER_IMAGE}'
             }
-        }/*
+        }
         stage('Archive Report') {
             steps {
                 // Archive the Trivy report for later reference
@@ -119,7 +119,7 @@ pipeline {
                 }
             }
         }
-    stage('Deploy To Kubernetes') {
+    /*stage('Deploy To Kubernetes') {
 steps {
 withKubeConfig(caCertificate: '', clusterName: 'my-cluster', contextName: '', credentialsId: 'k8-cred', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://5A01BC8FADC3B1F2978C9BD0D1768FBF.gr7.us-east-1.eks.amazonaws.com') {
 sh "kubectl apply -f deployment-service.yaml"
