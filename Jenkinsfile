@@ -6,7 +6,7 @@ pipeline {
     }
     environment {
        SCANNER_HOME = tool 'sonar-scanner'
-        //DOCKER_IMAGE = "bkrraj/boardshack:${env.BUILD_NUMBER}" // Image name with versioning
+       DOCKER_IMAGE = "bkrraj/boardshack:${env.BUILD_NUMBER}" // Image name with versioning
     }
     stages {
         stage('Git Checkout') {
