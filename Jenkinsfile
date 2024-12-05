@@ -45,7 +45,7 @@ pipeline {
                 }
             }
         }
-       /* stage('Quality Gate') {
+        stage('Quality Gate') {
             steps {
                 script {
                     timeout(time: 1, unit: 'HOUR') {
@@ -53,7 +53,7 @@ pipeline {
                     }
                 }
             }
-        }*/
+        }
         stage('Build') {
             steps {
                 sh 'mvn clean package'
