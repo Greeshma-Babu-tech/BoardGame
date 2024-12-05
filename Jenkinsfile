@@ -64,7 +64,7 @@ pipeline {
                 nexusArtifactUploader(
                      nexusVersion: 'nexus3', // Specify the Nexus version 
                      protocol: 'http', 
-                     nexusUrl: 'http://35.175.171.59:8081/', 
+                     nexusUrl: 'http://35.175.171.59:8081', 
                      repository: 'BoardGame', 
                      credentialsId: 'nexus', 
                      groupId: 'com.javaproject', 
