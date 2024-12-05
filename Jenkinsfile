@@ -101,7 +101,7 @@ pipeline {
         } 
         stage('Docker Image Scan') {
             steps {
-                sh 'trivy image --format table -o trivy-image-report.html ${DOCKER_IMAGE}'
+                sh "trivy image --format table -o trivy-image-report.html ${DOCKER_IMAGE}"
             }
         }
         stage('Archive Report') {
@@ -114,7 +114,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh 'docker push ${DOCKER_IMAGE}'
+                        sh "docker push ${DOCKER_IMAGE}"
                     }
                 }
             }
@@ -123,7 +123,8 @@ pipeline {
             steps { 
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-cred', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                      withKubeConfig(caCertificate: '', clusterName: 'my-cluster', contextName: '', credentialsId: 'k8-cred', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://6EA25F755AE30BB5DF2E60A52FF787DA.sk1.us-east-1.eks.amazonaws.com') {
-                         sh "kubectl apply -f deployment-service.yaml"
+                         sh "aws eks --region us-east-1 update-kubeconfig --name my-cluster \
+                             kubectl apply -f deployment-service.yaml"
                     } 
                 }
            }
