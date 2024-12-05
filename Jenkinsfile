@@ -6,7 +6,7 @@ pipeline {
     }
     environment {
        SCANNER_HOME = tool 'sonar-scanner'
-       DOCKER_IMAGE = "bkrraj/boardshack:${env.BUILD_NUMBER}" // Image name with versioning
+       DOCKER_IMAGE = "greeshmab/boardgame:${env.BUILD_NUMBER}" // Image name with versioning
     }
     stages {
         stage('Git Checkout') {
@@ -88,7 +88,7 @@ pipeline {
         //         }
         //     }
         // }
-        /* stage('Build Docker Image and TAG') {
+        stage('Build Docker Image and TAG') {
             steps {
                 script {
                     // Build the Docker image using the renamed JAR file
@@ -97,7 +97,7 @@ pipeline {
                     }
                 }   
             }
-        }
+        } /*
         stage('Docker Image Scan') {
             steps {
                 sh 'trivy image --format table -o trivy-image-report.html ${DOCKER_IMAGE}'
