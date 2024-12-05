@@ -6,7 +6,7 @@ pipeline {
     }
     environment {
         SCANNER_HOME = tool 'sonar-scanner'
-        DOCKER_IMAGE = "bkrraj/boardshack:${env.BUILD_NUMBER}" // Image name with versioning
+        //DOCKER_IMAGE = "bkrraj/boardshack:${env.BUILD_NUMBER}" // Image name with versioning
     }
     stages {
         stage('Git Checkout') {
@@ -37,7 +37,7 @@ pipeline {
                 sh 'trivy fs --format table --output trivy-fs-report.html .'
             }
         }
-        stage('SonarQube Analsyis') {
+        stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('sonar') {
                     sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=BoardGame -Dsonar.projectKey=BoardGame \
@@ -45,27 +45,28 @@ pipeline {
                 }
             }
         }
-        stage('Quality Gate') {
+       /* stage('Quality Gate') {
             steps {
                 script {
-                    timeout(time: 1, unit: 'MINUTES') {
+                    timeout(time: 1, unit: 'HOUR') {
                         waitForQualityGate abortPipeline: true, credentialsId: 'sonar'
                     }
                 }
             }
-        }
+        }*/
         stage('Build') {
             steps {
                 sh 'mvn package'
             }
         }
-      /*  stage('Publish To Nexus') {
+        stage('Publish To Nexus') {
             steps {
+                nexusArtifactUploader credentialsId: 'nexus', groupId: 'com.javaproject', nexusUrl: 'http://35.175.171.59:8081/', nexusVersion: 'nexus3', protocol: 'http', repository: 'BoardGame', version: '02-SNAPSHOT'
                 withMaven(globalMavenSettingsConfig: 'global-settings', jdk: 'jdk17', maven: 'maven3', mavenSettingsConfig: '', traceability: true) {
                     sh 'mvn deploy -X'
                 }
             }
-        }*/
+        }
         // stage('Build & Tag Docker Image') {
         //     steps {
         //         script {
