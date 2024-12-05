@@ -68,7 +68,11 @@ pipeline {
                      repository: 'BoardGame', 
                      credentialsId: 'nexus', 
                      groupId: 'com.javaproject', 
-                     version: '02-SNAPSHOT')
+                     version: '02-SNAPSHOT'
+                     artifacts: [
+                         [artifactId:'database_service_project',classifier: '', file: 'target/artifact.jar', type: 'jar']
+                     ]
+                     )
                 withMaven(globalMavenSettingsConfig: 'global-settings', jdk: 'jdk17', maven: 'maven3', mavenSettingsConfig: '', traceability: true) {
                     sh 'mvn deploy -X'
                 }
