@@ -57,13 +57,13 @@ pipeline {
                 sh 'mvn package'
             }
         }
-        stage('Publish To Nexus') {
+      /*  stage('Publish To Nexus') {
             steps {
                 withMaven(globalMavenSettingsConfig: 'global-settings', jdk: 'jdk17', maven: 'maven3', mavenSettingsConfig: '', traceability: true) {
                     sh 'mvn deploy -X'
                 }
             }
-        }
+        }*/
         // stage('Build & Tag Docker Image') {
         //     steps {
         //         script {
@@ -73,7 +73,7 @@ pipeline {
         //         }
         //     }
         // }
-         stage('Build Docker Image and TAG') {
+        /* stage('Build Docker Image and TAG') {
             steps {
                 script {
                     // Build the Docker image using the renamed JAR file
@@ -109,6 +109,6 @@ withKubeConfig(caCertificate: '', clusterName: 'my-cluster', contextName: '', cr
 sh "kubectl apply -f deployment-service.yaml"
 }
 }
-}
+}*/
     }
 }
