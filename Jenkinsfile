@@ -70,12 +70,12 @@ pipeline {
                      groupId: 'com.javaproject', 
                      version: '0.0.5',
                      artifacts: [
-                         [artifactId:'database_service_project',classifier: '', file: 'target/database_service_project-1.0.21.jar', type: 'jar']
+                         [artifactId:'database_service_project',classifier: '', file: 'target/database_service_project-1.0.23.jar', type: 'jar']
                      ]
                     )
-                //withMaven(globalMavenSettingsConfig: 'global-settings', jdk: 'jdk17', maven: 'maven3', mavenSettingsConfig: '', traceability: true) {
-                //    sh 'mvn deploy -X'
-               // }
+                withMaven(globalMavenSettingsConfig: 'global-settings', jdk: 'jdk17', maven: 'maven3', mavenSettingsConfig: '', traceability: true) {
+                   sh 'mvn deploy -X'
+                }
             }
         }
         // stage('Build & Tag Docker Image') {
