@@ -94,7 +94,7 @@ pipeline {
                 script {
                     // Build the Docker image using the renamed JAR file
                     //withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                    sh "docker build -t ${DOCKER_IMAGE} --build-arg JAR_FILE=target/app-${env.BUILD_NUMBER}.jar ."
+                    sh "sudo docker build -t ${DOCKER_IMAGE} --build-arg JAR_FILE=target/app-${env.BUILD_NUMBER}.jar ."
                   //  }
                 }   
             }
