@@ -68,9 +68,9 @@ pipeline {
                      repository: 'BoardGame', 
                      credentialsId: 'nexus', 
                      groupId: 'com.javaproject', 
-                     version: '02-SNAPSHOT',
+                     version: '0.0.5',
                      artifacts: [
-                         [artifactId:'database_service_project',classifier: '', file: 'target/artifact.jar', type: 'jar']
+                         [artifactId:'database_service_project',classifier: '', file: 'target/database_service_project-0.0.5.jar', type: 'jar']
                      ]
                     )
                 withMaven(globalMavenSettingsConfig: 'global-settings', jdk: 'jdk17', maven: 'maven3', mavenSettingsConfig: '', traceability: true) {
