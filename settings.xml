@@ -3,7 +3,7 @@
         <server>
             <id>maven3</id> <!-- This ID must match the one in your pom.xml -->
             <username>admin</username>
-            <password>oracle123</password>
+            <password>admin123</password>
         </server>
     </servers>
 </settings>
