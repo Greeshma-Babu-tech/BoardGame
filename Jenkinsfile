@@ -125,8 +125,8 @@ pipeline {
                      withKubeConfig(caCertificate: '', clusterName: 'my-cluster', contextName: '', credentialsId: 'k8-cred', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://6EA25F755AE30BB5DF2E60A52FF787DA.sk1.us-east-1.eks.amazonaws.com') {
                          sh "aws eks --region us-east-1 update-kubeconfig --name my-cluster \
                              kubectl apply -f deployment-service.yaml"
-                    } 
-                }*/
+                    } */
+                }
                 echo "docker image deployed"
            }
         }
