@@ -128,7 +128,6 @@ pipeline {
                     } */
                 }
                 echo "docker image deployed"
-           }
         }
-    }
-}
+ }
+
