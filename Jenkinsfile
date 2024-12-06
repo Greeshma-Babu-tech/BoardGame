@@ -120,14 +120,16 @@ pipeline {
             }
         }
         stage('Deploy To Kubernetes') { 
-           /* steps { 
-                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-cred', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+           steps { 
+                /* withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-cred', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                      withKubeConfig(caCertificate: '', clusterName: 'my-cluster', contextName: '', credentialsId: 'k8-cred', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://6EA25F755AE30BB5DF2E60A52FF787DA.sk1.us-east-1.eks.amazonaws.com') {
                          sh "aws eks --region us-east-1 update-kubeconfig --name my-cluster \
                              kubectl apply -f deployment-service.yaml"
                     } */
-                }
                 echo "docker image deployed"
+                }
+                
         }
- }
+    }
+}
 
